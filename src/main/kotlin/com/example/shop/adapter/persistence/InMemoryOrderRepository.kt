@@ -3,6 +3,11 @@ package com.example.shop.adapter.persistence
 import com.example.shop.application.OrderRepository
 import com.example.shop.domain.Order
 
+/**
+ * In-memory [OrderRepository] used for demos and tests.
+ *
+ * Backed by a plain [mutableMapOf]; it is not safe for concurrent use.
+ */
 class InMemoryOrderRepository : OrderRepository {
     private val store = mutableMapOf<String, Order>()
     override fun find(id: String): Order? = store[id]
